@@ -1,0 +1,40 @@
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>onmousewheel</title>
+ <script src="http://127.0.0.1:88/public.js"></script>
+</head>
+<body>
+<div id="box" style="height:300px;width:300px;background-color:red;">
+
+</div>
+<p><label for="wheelDelta">  滚动值:</label>(IE/Opera)<input type="text" id="wheelDelta" /></p>
+<p><label for="detail"> 滚动值:(Firefox)</label><input type="text" id="detail" /></p>
+ <script type="text/javascript">
+//     function scrollFun(e){
+//         var ev=e|| window.event;
+//         console.log(ev);
+//         if(ev.detail){
+//             document.getElementById("detail").value=ev.detail;
+//         }else if(ev.wheelDelta){
+//             document.getElementById("wheelDelta").value=ev.wheelDelta;
+//         }
+//     }
+//     window.onmousewheel=scrollFun;//W3C
+//     if(document.addEventListener){//FF
+//         document.addEventListener('DOMMouseScroll',scrollFun,false);
+//     }
+   var dom=document.getElementById("box");
+   addEvent(dom,"mousewheel",func);
+   addEvent(dom,"DOMMouseScroll",func);
+   function func(e){
+         var ev=e|| window.event;
+         if(ev.detail){
+             document.getElementById("detail").value=ev.detail;
+         }else if(ev.wheelDelta){
+             document.getElementById("wheelDelta").value=ev.wheelDelta;
+         }
+   }
+     </script>
+</body>
+</html>
